@@ -1,0 +1,22 @@
+class Solution(object):
+    def twoSum(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        leftover_nums = list(nums)
+        for num1 in nums:
+            leftover_nums.remove(num1)
+            for num2 in leftover_nums:
+                if num1 + num2 == target:
+                    if num1 == num2:
+                        indicies = [index for index, val in enumerate(nums) if val == num1]
+                        return [indicies[0], indicies[1]]
+                    else:
+                        return [nums.index(num1), nums.index(num2)]
+                else:
+                    continue
+
+
+print(Solution().twoSum([3,3], 6))
